@@ -1,0 +1,270 @@
+/* 전체 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 페이지 배경 및 중앙 정렬 */
+body {
+  min-height: 100vh;
+  background: #f0f2f8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 16px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* 카드 컨테이너 */
+.card {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px 40px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 12px 32px rgba(0, 0, 0, 0.09);
+}
+
+/* 제목 */
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 28px;
+  letter-spacing: -0.3px;
+}
+
+/* 할 일 개수 통계 */
+.stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.stat-total strong,
+.stat-done strong {
+  color: #6d28d9;
+  font-weight: 700;
+}
+
+/* 입력 행 */
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* 텍스트 입력창 */
+.input {
+  flex: 1;
+  height: 48px;
+  padding: 0 16px;
+  border: 1.5px solid #e2e4f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #374151;
+  background: #f9fafb;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* 입력창 포커스 */
+.input:focus {
+  border-color: #7c3aed;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.input::placeholder {
+  color: #b0b5c9;
+}
+
+/* 추가 버튼 */
+.btn-add {
+  height: 48px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 12px;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.35);
+}
+
+.btn-add:hover {
+  background: #6d28d9;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-add:active {
+  background: #5b21b6;
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
+}
+
+/* 필터 버튼 행 */
+.filter-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+/* 필터 버튼 공통 */
+.btn-filter {
+  flex: 1;
+  height: 36px;
+  border: 1.5px solid #e2e4f0;
+  border-radius: 10px;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-filter:hover {
+  border-color: #7c3aed;
+  color: #7c3aed;
+}
+
+/* 선택된 필터 강조 */
+.btn-filter.active {
+  background: #7c3aed;
+  border-color: #7c3aed;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 하단 일괄 삭제 영역 */
+.bottom-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 완료 항목 일괄 삭제 버튼 */
+.btn-clear {
+  border: none;
+  background: transparent;
+  color: #ef4444;
+  font-size: 0.82rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.btn-clear:hover {
+  background: #fee2e2;
+}
+
+.btn-clear:disabled {
+  color: #d1d5db;
+  cursor: default;
+}
+
+.btn-clear:disabled:hover {
+  background: transparent;
+}
+
+/* 할 일 목록 */
+.todo-list {
+  list-style: none;
+}
+
+/* 할 일 항목 */
+.todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: 1px solid #f0f2f8;
+  font-size: 0.95rem;
+  color: #374151;
+  transition: background 0.1s ease;
+}
+
+.todo-list li:last-child {
+  border-bottom: none;
+}
+
+/* 체크박스 — 기본 스타일 숨기고 커스텀 */
+.todo-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  position: relative;
+}
+
+/* 체크박스 체크 표시 */
+.todo-checkbox:checked {
+  background: #7c3aed;
+  border-color: #7c3aed;
+}
+
+.todo-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 8px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* 할 일 텍스트 */
+.todo-text {
+  flex: 1;
+  transition: color 0.15s ease;
+}
+
+/* 완료된 항목 — 취소선 + 흐리게 */
+.todo-list li.done .todo-text {
+  color: #b0b5c9;
+  text-decoration: line-through;
+}
+
+/* 삭제 버튼 */
+.btn-delete {
+  border: none;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: #9ca3af;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}

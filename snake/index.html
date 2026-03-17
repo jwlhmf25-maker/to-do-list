@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스네이크 게임</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1 class="title">🐍 스네이크 게임</h1>
+
+    <div class="score-board">
+      <div class="score-item">
+        <span class="score-label">점수</span>
+        <span class="score-value" id="score">0</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">레벨</span>
+        <span class="score-value" id="level">1</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">최고 점수</span>
+        <span class="score-value" id="highScore">0</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="difficulty-group">
+        <label class="control-label">난이도</label>
+        <div class="diff-buttons">
+          <button class="diff-btn" data-interval="200">쉬움</button>
+          <button class="diff-btn active" data-interval="150">보통</button>
+          <button class="diff-btn" data-interval="100">어려움</button>
+          <button class="diff-btn" data-interval="50">매우 어려움</button>
+        </div>
+      </div>
+      <button class="btn btn-pause" id="pauseBtn" disabled>일시정지</button>
+    </div>
+
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+      <div id="overlay" class="overlay">
+        <div class="overlay-content">
+          <p class="overlay-title" id="overlayTitle">스네이크 게임</p>
+          <p class="overlay-msg" id="overlayMsg">방향키로 뱀을 조종하세요</p>
+          <p class="overlay-score" id="overlayScore"></p>
+          <button class="btn" id="actionBtn">게임 시작</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">↑ ↓ ← → 방향키로 조종 &nbsp;|&nbsp; 먹이를 먹으면 +10점 &nbsp;|&nbsp; P 키로 일시정지</p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

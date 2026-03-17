@@ -1,0 +1,151 @@
+/* 전역 스타일 초기화 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 카드 컨테이너 */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* 제목 */
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+/* 입력 필드 그룹 */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+
+/* 통화 선택 드롭다운 행 */
+.currencies {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 8px;
+}
+
+.currencies .field {
+  margin-bottom: 0;
+}
+
+/* 통화 교환 버튼 */
+#swap-btn {
+  margin-top: 0;
+  width: auto;
+  padding: 10px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #f0eeff;
+  color: #5a4fcf;
+  border: 1.5px solid #c5bff7;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#swap-btn:hover {
+  background: #e0d9ff;
+  opacity: 1;
+}
+
+/* 공통 입력/선택 스타일 */
+input[type="number"],
+select {
+  padding: 10px 12px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  background: #fff;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #667eea;
+}
+
+/* 숫자 증감 버튼 제거 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* 변환 버튼 */
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 결과 영역 */
+.result {
+  margin-top: 24px;
+  padding: 16px;
+  background: #f4f3ff;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #5a4fcf;
+}
+
+.result.error {
+  background: #fff0f0;
+  color: #d0362a;
+}
+
+/* 숨김 처리 */
+.hidden {
+  display: none;
+}
